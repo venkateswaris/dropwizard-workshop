@@ -1,5 +1,7 @@
 package controller;
 
+import App.View;
+import com.fasterxml.jackson.annotation.JsonView;
 import models.Beach;
 
 import javax.ws.rs.GET;
@@ -15,6 +17,7 @@ import static com.google.common.collect.Lists.newArrayList;
 public class BeachResource {
 
     @GET
+    @JsonView(View.Beach.class)
     public ArrayList<Beach> all(){
         return newArrayList(new Beach("marina beach"),new Beach("thiruvanmiyur beach"));
     }

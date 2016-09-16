@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.databind.MapperFeature;
 import controller.ApplicationHealthCheck;
 import controller.BeachResource;
 import io.dropwizard.Application;
@@ -16,5 +17,7 @@ public class App extends Application<AppConfiguration> {
         final BeachResource beachResource = new BeachResource();
         environment.healthChecks().register("application", healthCheck);
         environment.jersey().register(beachResource);
+
+        environment.getObjectMapper().disable(MapperFeature.DEFAULT_VIEW_INCLUSION);
     }
 }
