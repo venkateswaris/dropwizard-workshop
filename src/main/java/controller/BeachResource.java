@@ -1,8 +1,8 @@
 package controller;
 
-import App.View;
 import com.fasterxml.jackson.annotation.JsonView;
 import models.Beach;
+import view.BeachView;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -28,6 +28,13 @@ public class BeachResource {
     public Beach add(Beach newBeach) {
         beaches.add(newBeach);
         return newBeach;
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.TEXT_HTML)
+    public BeachView get(@PathParam(value = "id") Long id) {
+        return new BeachView(beaches.stream().filter(b -> b.getId().equals(id)).findFirst().get());
     }
 
 }

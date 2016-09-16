@@ -1,4 +1,4 @@
-package App;
+package controller;
 
 public @interface View {
 

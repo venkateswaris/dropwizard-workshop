@@ -1,6 +1,6 @@
 package models;
 
-import App.View;
+import controller.View;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;

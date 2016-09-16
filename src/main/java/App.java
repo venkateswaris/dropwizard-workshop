@@ -2,7 +2,9 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import controller.ApplicationHealthCheck;
 import controller.BeachResource;
 import io.dropwizard.Application;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.dropwizard.views.ViewBundle;
 
 
 public class App extends Application<AppConfiguration> {
@@ -19,5 +21,10 @@ public class App extends Application<AppConfiguration> {
         environment.jersey().register(beachResource);
 
         environment.getObjectMapper().disable(MapperFeature.DEFAULT_VIEW_INCLUSION);
+    }
+
+    @Override
+    public void initialize(Bootstrap<AppConfiguration> bootstrap) {
+        bootstrap.addBundle(new ViewBundle());
     }
 }
