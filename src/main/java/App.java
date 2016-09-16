@@ -14,6 +14,5 @@ public class App extends Application<AppConfiguration> {
         final ApplicationHealthCheck healthCheck =
                 new ApplicationHealthCheck();
         environment.healthChecks().register("application", healthCheck);
-        environment.jersey().register(healthCheck);
     }
 }
