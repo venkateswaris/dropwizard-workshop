@@ -3,14 +3,14 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
 
-public class App extends Application<DevConfiguration> {
+public class App extends Application<AppConfiguration> {
 
 
     public static void main(String[] args) throws Exception {
         new App().run(args);
     }
 
-    public void run(DevConfiguration devConfiguration, Environment environment) throws Exception {
+    public void run(AppConfiguration configuration, Environment environment) throws Exception {
         final ApplicationHealthCheck healthCheck =
                 new ApplicationHealthCheck();
         environment.healthChecks().register("application", healthCheck);
