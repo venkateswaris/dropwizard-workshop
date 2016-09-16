@@ -1,10 +1,12 @@
 package controller;
 
+import models.Beach;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import java.util.ArrayList;
 
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -13,8 +15,8 @@ import static com.google.common.collect.Lists.newArrayList;
 public class BeachResource {
 
     @GET
-    public List<String> all(){
-        return newArrayList("marina beach","thiruvanmiyur beach");
+    public ArrayList<Beach> all(){
+        return newArrayList(new Beach("marina beach"),new Beach("thiruvanmiyur beach"));
     }
 
 }
