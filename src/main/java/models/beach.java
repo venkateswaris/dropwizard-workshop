@@ -1,12 +1,16 @@
 package models;
 
 import App.View;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Random;
 
 @Getter
+@NoArgsConstructor
 public class Beach {
 
     static Random random = new Random(1000);
@@ -16,7 +20,8 @@ public class Beach {
     @JsonView(View.Beach.class)
     private String name;
 
-    public Beach(String name) {
+    @JsonCreator
+    public Beach(@JsonProperty("name") String name) {
         this.id = random.nextLong();
         this.name = name;
     }
