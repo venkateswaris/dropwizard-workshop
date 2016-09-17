@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import models.Beach;
 import view.BeachView;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class BeachResource {
     }
 
     @POST
-    public Beach add(Beach newBeach) {
+    public Beach add(@Valid Beach newBeach) {
         beaches.add(newBeach);
         return newBeach;
     }
